@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('layout/header'); %>
+    <script type="text/javascript">
+      function requestUrl(){        
+
+        fetch('/dashboard/graduates/cohorte', {
+         method: 'post',
+        })
+          .then(response => response.json())
+          .then(d => {
+            console.log(d)
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+    </script>
+<body>
+
+    <%- include('layout/navbar'); %>
+    <div class="container">
+        <div class="columns">
+            <%- include('layout/sidebar'); %>
+            <div class="column is-9">
+                <%- include('layout/user'); %>    
+                         <div class="columns">
+            <div class="column is-12" id="usersTable">
+
+              <button class="table-btn" onclick="requestUrl()" >Download</button>
+                
+                <% if (data.careers) { %>
+                    <div class="field" >
+                        <div class="control has-icons-left" id="options">
+                          <div class="select">
+                            <select id="careers">
+                              <option disabled selected>Carrera</option>
+                              <% data.careers.forEach(function(career){ %> 
+                                <option><%= career %> </option>
+                              <% }); %>
+                            </select>
+                          </div>
+
+                        </div>
+
+                      </div>
+                      <input class="input is-primary" type="text" placeholder="Número de cuenta" id="search">
+                      <br>
+
+                   
+                <% } else {%>
+                    No career yet available
+                <% } %>
+
+               <div id="content">
+                   
+               </div>
+                </div>
+                  
+            </div>
+        </div>          
+            </div>
+
+            
+            
+        </div>
+        
+
+    <%- include('layout/scripts'); %>
+    <script type="text/javascript" src="/graduates.js"></script>
+    
+</body>
+
+</html>

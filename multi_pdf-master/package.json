@@ -1,0 +1,27 @@
+{
+  "name": "multi_pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bulma": "^0.9.1",
+    "chart.js": "^2.9.4",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "multer": "^1.4.2",
+    "pdf-parse": "^1.1.1",
+    "pdfkit": "^0.11.0",
+    "uuid": "^8.3.1"
+  }
+}

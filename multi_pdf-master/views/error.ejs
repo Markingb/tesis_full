@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('layout/header'); %>
+
+<body>
+
+    <%- include('layout/navbar'); %>
+    <div class="container">
+        <div class="columns">
+            <%- include('layout/sidebar'); %>
+            <div class="column is-9">
+                <%- include('layout/user'); %>                
+            </div>            
+        </div>
+        <div class="columns">
+            <div class="column is-9">
+                <%= error %>    
+            </div>
+        </div>
+        
+        </div>
+    </div>
+    <%- include('layout/scripts'); %>
+
+</body>
+
+</html>

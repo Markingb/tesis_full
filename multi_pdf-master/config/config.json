@@ -1,0 +1,15 @@
+{
+	"development": {
+		"db": {
+			"url":"mongodb://localhost:27017",
+			"db":"trayectoria_escolar",
+			"options": {
+				"useNewUrlParser": true, 
+				"useUnifiedTopology": true
+			}
+		},
+		"app": {
+			"port": 4000
+		}
+	}
+}

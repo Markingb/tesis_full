@@ -1,0 +1,9 @@
+
+<!-- Scripts specifically used under each page -->
+<!-- Load assets that belong to this page -->
+<!-- Variable "assets" should containg a css asset in order to be loaded -->
+<% if (assets && assets.js) { %>
+    <% assets.js.forEach(function(asset){ %> 
+        <script type="text/javascript" src="<%= asset %>"></script>
+        <% }); %>
+<% } %>

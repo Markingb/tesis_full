@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+    <%- include('layout/header'); %>
+
+<body>
+
+    <%- include('layout/navbar'); %>
+    <div class="container">
+        <div class="columns">
+            <%- include('layout/sidebar'); %>
+            <div class="column is-9">
+                <%- include('layout/user'); %>
+                <section class="info-tiles">
+                    <div class="tile is-ancestor has-text-centered">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">Hola</p>
+                                <p class="subtitle">Administrador</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Archivos PDF subidos
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <% if (files == null) { %>
+                                        <div class="container">
+                                            <div class="notification is-danger">
+                                              Aun no ha subido archivos.
+                                            </div>
+                                          </div>
+                                    <% } else { %>
+                                        
+                                        <table class="table">
+                                            <thead>
+                                                <!--
+                                              <tr>
+                                                <th>FileName</th>
+                                                <th>Options</th>
+                                              </tr>
+                                              -->
+                                            </thead>
+                                            <tfoot>
+                                                <!-- 
+                                              <tr>
+                                                <th>FileName</abbr></th>
+                                                <th>Options</th>
+                                              </tr>
+                                              -->
+                                            </tfoot>
+                                            <tbody>
+
+                                            <% files.forEach(function(file){ %> 
+                                              <tr>
+                                                <th><%= file %></th>
+                                                <td>
+                                                    <button class="button is-info">Procesar</button>
+                                                    <!-- <button class="button is-info" onclick="procesarArchivo('<%= file %>')">Procesar</button> -->
+                                                    <button class="button is-danger" onclick="eliminarArchivo('<%= file %>')">Eliminar</button>
+                                                    <!-- <button class="button is-danger">Eliminar</button> -->
+                                                </td>
+                                                
+                                              </tr>
+                                            <% }); %>
+                                            </tbody>
+                                          </table>                                       
+                                    <% } %>                                            
+                                    
+                                </div>
+                            </div>
+                <footer class="card-footer"></footer>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Subir un archivo
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control has-icons-left has-icons-right">
+                                        <div class="file has-name is-right" id="load_file">
+                                            <label class="file-label">
+                                              <input class="file-input" type="file" name="resume" id="file_name">
+                                              <span class="file-cta">
+                                                <span class="file-icon">
+                                                  <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                  Seleccione un archivo
+                                                </span>
+                                              </span>
+                                            </label>
+                                          </div>
+
+                                          <div class="file has-name is-right" id="upload_file">
+                                            <label class="file-label">
+                                              <span class="file-cta">
+                                                <span class="file-icon">
+                                                  <i class="fas fa-upload"></i>
+                                                </span>
+                                                <span class="file-label">
+                                                  Subir
+                                                </span>
+                                              </span>
+                                              <span class="file-name" id="file_value"></span>
+                                            </label>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script type="text/javascript" src="/pdf.js"></script>
+
+</body>
+
+</html>
